@@ -20,12 +20,16 @@ jobs:
     - name: Install Dependencies
       run: |
         sudo apt update
+        sudo apt install -y software-properties-common
         sudo apt install -y build-essential libncurses5-dev gawk git \
           wget subversion file libssl-dev gettext unzip python3
 
-    - name: Install Python 2
+    - name: Install Python 2 (from PPA)
       run: |
-        sudo apt install -y python2
+        sudo add-apt-repository ppa:deadsnakes/ppa -y
+        sudo apt update
+        sudo apt install -y python2.7
+        sudo ln -sf /usr/bin/python2.7 /usr/bin/python
 
     - name: Setup Feeds
       run: |
