@@ -6,9 +6,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write
+
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
 
     - name: Clone OpenWRT
       run: git clone --branch v19.07.10 --depth 1 https://github.com/openwrt/openwrt.git
@@ -36,7 +40,7 @@ jobs:
         make -j$(nproc)
 
     - name: Upload Firmware
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: RocketM2 Firmware
         path: openwrt/bin/targets/ar71xx/generic/
