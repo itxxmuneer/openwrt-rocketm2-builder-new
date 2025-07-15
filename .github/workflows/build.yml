@@ -23,6 +23,10 @@ jobs:
         sudo apt install -y build-essential libncurses5-dev gawk git \
           wget subversion file libssl-dev gettext unzip python3
 
+    - name: Install Python 2
+      run: |
+        sudo apt install -y python2
+
     - name: Setup Feeds
       run: |
         cd openwrt
