@@ -1,4 +1,4 @@
-name: Build RocketM2 Firmware
+name: Build RocketM2 Firmware ✨
 
 on:
   workflow_dispatch:
